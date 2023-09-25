@@ -1,5 +1,16 @@
-function Home() {
-    return <h1>Teste</h1>
-}
+//function home() {
+    //return <h1>Hoje você está... </h1>
+//}
 
-export default Home;
+//export default home;
+
+var __html = require('./index.html');
+var template = { __html: __html };
+
+React.module.exports = React.createClass({
+  render: function() {
+    return(
+      <div innnerHTML={template} />
+    );
+  }
+});
