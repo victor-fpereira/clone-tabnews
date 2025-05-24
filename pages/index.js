@@ -1,8 +1,5 @@
-var __html = require("./index.html");
-var template = { __html: __html };
+function Home() {
+  return <h1>Hello World!!</h1>;
+}
 
-React.module.exports = React.createClass({
-  render: function () {
-    return <div innnerHTML={template} />;
-  },
-});
+export default Home;

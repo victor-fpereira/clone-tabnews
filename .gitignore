@@ -1,2 +1,6 @@
 .next
 node_modules
+# Ignorando os arquivos temporariamente
+index.html
+script.js
+style.css
