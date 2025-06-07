@@ -1,5 +1,5 @@
 const { Client } = require("pg");
-require("dotenv").config();
+require("dotenv").config({ path: ".env.development" });
 
 async function query(queryObject) {
   const client = new Client({
@@ -10,10 +10,16 @@ async function query(queryObject) {
     password: process.env.POSTGRES_PASSWORD,
   });
 
-  client.connect();
-  const result = await client.query(queryObject);
-  await client.end();
-  return result;
+  await client.connect();
+
+  try {
+    const result = await client.query(queryObject);
+    return result;
+  } catch (error) {
+    console.log(error);
+  } finally {
+    await client.end();
+  }
 }
 
 module.exports = {
